@@ -1,0 +1,8 @@
+# Webcam-Barcode-Scanner requirements
+# Usage: pip install -r requirements.txt
+
+torch
+opencv-python-headless
+pyzbar
+flask
+numpy
