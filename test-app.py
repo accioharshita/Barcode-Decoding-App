@@ -22,7 +22,6 @@ def decode():
         nparr = np.fromstring(image, np.uint8)
         frame = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
-
         results = model(frame)
         detections = results.pandas().xyxy[0]
 
