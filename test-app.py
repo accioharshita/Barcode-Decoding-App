@@ -10,7 +10,10 @@ app= Flask(__name__)
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 model = torch.hub.load('ultralytics/yolov5', 'custom', path='model.pt').to(device)
 
-
+@app.route('/')
+def home():
+    return 'Barcode Decoding Application'
+    
 @app.route('/decode', methods= ['GET', 'POST'])
 def decode():
     if request.method == 'POST':
@@ -55,10 +58,10 @@ def decode():
                 cv2.rectangle(frame, (x1, y2), (x1 + data_size[0], y2 + data_size[1]), (0, 255, 0), cv2.FILLED)
                 cv2.putText(frame, data, (x1, y2 + data_size[1]), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
 
-            # Encode the annotated image as JPEG and return it
-            _, encoded_image = cv2.imencode('.jpg', frame)
-            response = Response(response=encoded_image.tobytes(), content_type='image/jpeg')
-            return response
+        # Encode the annotated image as JPEG and return it
+        _, encoded_image = cv2.imencode('.jpg', frame)
+        response = Response(response=encoded_image.tobytes(), content_type='image/jpeg')
+        return response
 
 
     return render_template('upload.html')
