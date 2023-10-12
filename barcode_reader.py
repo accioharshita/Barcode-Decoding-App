@@ -43,6 +43,6 @@ while cap.isOpened():
 
 	# Display annotated image
 	cv2.imshow('Result', frame)
-	if cv2.waitKey(1) & ord('q') == 27:
+	if cv2.waitKey(1) & ord('q'):
 		cv2.destroyAllWindows()
 		break
