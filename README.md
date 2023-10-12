@@ -25,8 +25,17 @@ To get started with the app, follow these steps:
 
 1. Clone the repository to your local machine.
    ```python
-   git clone https://github.com/accioharshita/Barcode-D.git
+   git clone https://github.com/accioharshita/Barcode-Decoding-App.git
    ```
+2. Start the Flask application
+   ```python
+   python test-app.py
+   ```
+3. Access the app in your web browser at http://localhost:5000.
+4. Upload an image containing barcodes for recognition and decoding.
+5. The app will process the image, annotate the barcode locations, decode the barcodes, and return the annotated image.
+
+
 
 
 
